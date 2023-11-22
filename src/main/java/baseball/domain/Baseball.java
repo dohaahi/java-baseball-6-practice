@@ -20,4 +20,8 @@ public class Baseball {
 
         return new Baseball(numbers);
     }
+
+    public int getStrike() {
+        return 0;
+    }
 }
