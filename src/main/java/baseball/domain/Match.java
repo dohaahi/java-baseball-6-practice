@@ -18,12 +18,14 @@ public class Match {
         return new Match(userBallNumbers, computerBallNumbers);
     }
 
-    public void matchBall() {
+    public int matchBall() {
         List<String> userNumbers = userBallNumbers.getNumbers();
         List<String> computerNumbers = computerBallNumbers.getNumbers();
 
         countStrike(userNumbers, computerNumbers);
         countBall(userNumbers, computerNumbers);
+
+        return strikeCount;
     }
 
     private void countStrike(List<String> userNumbers, List<String> computerNumbers) {
@@ -50,4 +52,3 @@ public class Match {
         return new MatchDto(ballCount, strikeCount);
     }
 }
-

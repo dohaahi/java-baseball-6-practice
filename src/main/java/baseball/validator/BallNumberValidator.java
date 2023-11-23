@@ -24,7 +24,7 @@ public class BallNumberValidator {
     }
 
     public static void validateBallNumbers(final String input) {
-        if (input.split("").length < 3) {
+        if (input.split("").length > 3) {
             throw new IllegalBallNumbersException();
         }
     }
