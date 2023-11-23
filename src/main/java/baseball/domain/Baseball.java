@@ -1,27 +1,43 @@
 package baseball.domain;
 
-import static baseball.view.BaseBallValidator.validateBaseball;
-
-import java.util.Arrays;
 import java.util.List;
 
 public class Baseball {
-    private final List<String> numbers;
+    private final Computer computer;
+    private final User user;
+    private final BallResults ballResults = new BallResults();
 
-    private Baseball(List<String> numbers) {
-        this.numbers = numbers;
+    public Baseball(Computer computer, User user) {
+        this.computer = computer;
+        this.user = user;
     }
 
-    public static Baseball from(final String input) {
-        validateBaseball(input);
-
-        List<String> numbers = Arrays.stream(input.split(""))
-                .toList();
-
-        return new Baseball(numbers);
+    public int match() {
+        return countStrike();
     }
 
-    public int getStrike() {
-        return 0;
+    public int countStrike() {
+        int strikeCount = 0;
+
+        for (int i = 0; i < 3; i++) {
+            if (computer.getNumber(i).equals(user.getNumber(i))) {
+                strikeCount++;
+            }
+        }
+
+        return strikeCount;
+    }
+
+    private int countBall() {
+        List<String> computerNumbers = computer.getNumbers();
+        List<String> userNumbers = user.getNumbers();
+
+        int ballCount = 0;
+
+        for (String computerNumber : computerNumbers) {
+            ballCount = (int) userNumbers.stream().filter(computerNumber::equals).count();
+        }
+
+        return ballCount;
     }
 }
