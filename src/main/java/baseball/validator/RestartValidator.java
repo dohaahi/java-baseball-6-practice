@@ -20,7 +20,7 @@ public class RestartValidator {
         final String regex = "^[1-2]+$";
 
         if (!Pattern.matches(regex, input)) {
-            throw new IllegalBallNumbersException();
+            throw new IllegalRestartException();
         }
     }
 }

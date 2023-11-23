@@ -8,7 +8,7 @@ import java.util.Set;
 public class ComputerBallNumbers {
     private final List<String> numbers;
 
-    public ComputerBallNumbers(List<String> numbers) {
+    private ComputerBallNumbers(List<String> numbers) {
         this.numbers = numbers;
     }
 

@@ -8,6 +8,7 @@ import baseball.view.InputView;
 import baseball.view.OutputView;
 
 public class BaseballController {
+
     public void run() {
         boolean restart = Button.OK.getBoolean();
 
